@@ -3,58 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-    <style type="text/tailwindcss">
-        @theme {
-          --color-clifford: #da373d;
-        }
-      </style>
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Tic-Tac-Toe</title>
 </head>
-<body class="bg-gray-300">
-    <header class="bg-black shadow-xl">
-        <nav class="mx-auto p-4 flex items-center justify-between">
-            <a href="/" class="text-2xl font-bold text-white">Play-TicTacToe</a>
-        </nav>
+<body class="bg-gray-300 flex flex-col items-center justify-center ">
+    <header class="bg-black shadow-xl w-full text-center p-4">
+        <h1 class="text-2xl font-bold text-white">Play Tic-Tac-Toe</h1>
     </header>
-    <main>
- <div id="container"></div>
+    
+    <main class="mt-10">
+        <div id="container" class="grid grid-cols-3 grid-rows-3 gap-1 w-[360px] h-[360px] relative"></div>
     </main>
 
-
-    <script>
-        const container=document.getElementById('container')
-        container.style.display='grid';
-        container.style.gridTemplateColumns = "repeat(3, 120px)"; 
-        container.style.gridTemplateRows = "repeat(3, 120px)";
-        container.style.margin = "50px 435px";
-        container.style.gap='0';
-
-        let currentPlayer='X';  
-        for(let i=0;i<9;i++){
-            const cell = document.createElement("div");
-            cell.style.width='120px';
-            cell.style.height='120px';
-            cell.style.display = "flex";
-        cell.style.alignItems = "center";
-        cell.style.justifyContent = "center";
-        cell.style.fontSize = "50px";
-        cell.style.fontWeight = "bold";
-        cell.style.cursor = "pointer";
-            cell.style.backgroundColor='rgb(209, 213, 219)';
-            if (i < 6) cell.style.borderBottom = "3px solid black";
-            if (i % 3 !== 2) cell.style.borderRight = "3px solid black";
-
-
-            cell.addEventListener("click",()=>{
-                if(cell.textContent===""){
-                    cell.textContent=currentPlayer;
-                    currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-                }
-            });
-           
-            container.appendChild(cell)
-        }
-    </script>
+    <script src="scripts.js"></script>
 </body>
 </html>
