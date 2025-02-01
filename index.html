@@ -29,6 +29,8 @@
         container.style.gridTemplateRows = "repeat(3, 120px)";
         container.style.margin = "50px 435px";
         container.style.gap='0';
+
+        let currentPlayer='X';  
         for(let i=0;i<9;i++){
             const cell = document.createElement("div");
             cell.style.width='120px';
@@ -43,6 +45,14 @@
             if (i < 6) cell.style.borderBottom = "3px solid black";
             if (i % 3 !== 2) cell.style.borderRight = "3px solid black";
 
+
+            cell.addEventListener("click",()=>{
+                if(cell.textContent===""){
+                    cell.textContent=currentPlayer;
+                    currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+                }
+            });
+           
             container.appendChild(cell)
         }
     </script>
