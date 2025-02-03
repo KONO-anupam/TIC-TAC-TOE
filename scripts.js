@@ -17,12 +17,13 @@ document.addEventListener("DOMContentLoaded", () => {
         for (let i = 0; i < 9; i++) {
             const cell = document.createElement("div");
             cell.classList.add(
-                "w-[120px]", "h-[120px]", "flex", "items-center", "justify-center",
-                "text-4xl", "font-bold", "cursor-pointer", "bg-gray-300",
+                "w-full", "h-full", "aspect-square", "flex", "items-center", "justify-center",
+                "text-3xl", "sm:text-4xl", "md:text-5xl", "font-bold", "cursor-pointer", "bg-gray-300"
             );
+    
             if (i < 6) cell.style.borderBottom = "3px solid black";
             if (i % 3 !== 2) cell.style.borderRight = "3px solid black";
-
+    
             cell.addEventListener("click", () => {
                 if (!gameOver && cell.textContent === "") {
                     cell.textContent = currentPlayer;
@@ -30,10 +31,11 @@ document.addEventListener("DOMContentLoaded", () => {
                     currentPlayer = currentPlayer === "X" ? "O" : "X";
                 }
             });
-
+    
             container.appendChild(cell);
         }
     };
+    
 
     const checkWins = () => {
         const cells = Array.from(container.children);
